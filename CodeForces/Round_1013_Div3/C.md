@@ -19,7 +19,7 @@ If a valid permutation not exists, then ouput -1.
 
 ## Input
 
-- First line contains the number of test cases $t$ ($ 1 \leq t \leq 500$)
+- First line contains the number of test cases $t$ ($1 \leq t \leq 500$)
 - Single line of each test case contains a single integer $N$. ($1 \leq N \leq 2*10^5$)
 
 ## Output
