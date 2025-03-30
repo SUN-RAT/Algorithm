@@ -22,7 +22,7 @@
 서로 다른 구간 &A$ 와 $B$ 를 `merge` 하는 연산을 $M(A, B)$ 라 하자.
 
 - 결합 연산 $M$ 에 대해 **결합 법칙 (`Associativity`)** 가 성립 해야 한다.
-  - $M(M(A, B),\; C)\; = \; M(A,\; M(B, C))$
+  - $M(M\text{(A, B),\,C})\, = \, M(\text{A, \, M(B, C)})$
   - 연산의 **순서를 어떻게 그룹핑해도 결과가 항상 동일** 해야 한다.
     - 여러 구간의 결과를 병합시, **항상 일관된 결과 보장** 하기 위함.
 
@@ -71,9 +71,9 @@ struct SegmentMerge
 
 - `sum` : 구간 $A$ 와 구간 $B$ 를 결합 시, $\text{result sum} = A_{sum} + B_{sum}$ 이다.
   - $+$ 연산에 대해서 항등원은 $0$ 이므로, 초기값으로 0 을 배정한다.
-- `min_data` : 구간 $A$ 와 구간 $B$ 를 결합 시, $\text{result min} = min(A_{min},\;B_{min})$ 이다.
+- `min_data` : 구간 $A$ 와 구간 $B$ 를 결합 시, $\text{result min} = min(A_{min},\,B_{min})$ 이다.
   - $min()$ 함수에 대해서 항등원은 $+\infty$ 이다. 주어진 data의 범위가 `int` 자료형 이내의 범위 이므로, 초기값으로 `numeric_limits<int>::max()` 를 배정한다.
-- `max_data` : 구간 $A$ 와 구간 $B$ 를 결합 시, $\text{result max} = max(A_{max},\;B_{max})$ 이다.
+- `max_data` : 구간 $A$ 와 구간 $B$ 를 결합 시, $\text{result max} = max(A_{max},\,B_{max})$ 이다.
   - $max()$ 함수에 대해서 항등원은 $-\infty$ 이다. 주어진 data의 범위가 `int` 자료형 이내의 범위 이므로, 초기값으로 `numeric_limits<int>::min()` 를 배정한다.
 
 ## Implementation
@@ -85,10 +85,10 @@ struct SegmentMerge
 
 ### 재귀 기반 SegmentTree
 
-- 현재의 구간을 $[s,\;e]$ 라 할때, 왼쪽 구간은 $[s,\;s + (e - s)/2]$, 오른쪽 구간은 $[s + (e - s)/2 + 1, e]$ 로 설정 한다.
+- 현재의 구간을 $[s,\,e]$ 라 할때, 왼쪽 구간은 $[s,\,s + (e - s)/2]$, 오른쪽 구간은 $[s + (e - s)/2 + 1, \, e]$ 로 설정 한다.
   - 하위 구간이 상위 구간의 전체를 `cover` 하며, 서로간 `disjoint` 함을 만족한다.
 - 일반적으로 Tree 저장을 위해 rough 하게 $4*N$ 만큼의 공간을 할당 한다.
-- **구간 $[l,\;r]$ 에 대한 결과**를 반환한다.
+- **구간 $[l,\,r]$ 에 대한 결과**를 반환한다.
 
 ```cpp
 template<typename SegmentType, typename MergeFuncType>
@@ -152,7 +152,7 @@ public:
 - 현재 코드에서 `root` 의 인덱스는 $1$ 이다.
 - Tree 공간을 위해 $2*N$ 만큼의 공간을 할당한다.
   - data 요소 하나만을 cover 하는 `leaf` 의 개수가 $N$ 이므로, **조상 node 들의 개수는 $N - 1$** 이다.
-- 재귀와 다르게, **구간 $[l,\;r)$ 에 대한 결과**를 반환한다.
+- 재귀와 다르게, **구간 $[l,\,r)$ 에 대한 결과**를 반환한다.
 
 ```cpp
 template<typename SegmentType, typename MergeFuncType>
