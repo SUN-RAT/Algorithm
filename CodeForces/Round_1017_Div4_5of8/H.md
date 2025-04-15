@@ -7,7 +7,15 @@
 
 Saturnita's mood depends on an array $a$ of length $n$, which only he knows the meaning of, and a function $f(k, a, l, r)$, which only he knows how to compute. Shown below is the pseudocode for his function $f(k, a, l, r)$.
 
-<code class="prettyprint">function f(k, a, l, r):<br/>   ans := 0<br/>   for i from l to r (inclusive):<br/>      while k is divisible by a[i]:<br/>         k := k/a[i]<br/>      ans := ans + k<br/>   return ans<br/></code>
+```plaintext
+function f(k, a, l, r):
+ans := 0
+for i from l to r (inclusive):
+    while k is divisible by a[i]:
+        k := k/a[i]
+        ans := ans + k
+return ans
+```
 
 You are given $q$ queries, each containing integers $k$, $l$, and $r$. For each query, please output $f(k,a,l,r)$.
 
