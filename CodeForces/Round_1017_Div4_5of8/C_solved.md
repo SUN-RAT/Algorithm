@@ -22,5 +22,70 @@ Given this grid, please help Patapim crack the forgotten code. It is guaranteed 
 
 ## Solution
 
+password 의 $i$번째 요소를 $p_{i}$ 라 하면, $G_{i - k,\;i + k}$ = $p_i$ 이다.  
+즉, $Grid$ 의 행 과 열 index 의 합이 password 에서의 인덱스 이다.  
+문제에서의 조건에 따라 1-based-index 로 접근시, 어떠한 행과 열의 인덱스를 합해도 $1$이 나올수가 없기에,  
+마지막에 등장하지 않은 단 하나의 요소가 $p_1$ 이다.
+
 ```cpp
+#include <bits/stdc++.h>
+
+// clang-format off
+#define FAST_IO std::ios::sync_with_stdio(false); std::cin.tie(nullptr); std::cout.tie(nullptr);
+#define ENDL '\n'
+// clang-format on
+
+using namespace std;
+using u_int = unsigned int;
+using ll = long long int;
+using u_ll = unsigned long long int;
+using pii = pair<int, int>;
+using pll = pair<ll, ll>;
+
+constexpr int N_MAX = 800;
+
+void solve(void)
+{
+    int N;
+    cin >> N;
+
+    vector<int> permutation(2 * N + 1, -1);
+    vector<bool> checked(2 * N + 1, false);
+    int p
+    for (int r = 1; r <= N; ++r)
+        for (int c = 1; c <= N; ++c)
+        {
+            cin >> p;
+            permutation[r + c] = p;
+            checked[p] = true;
+        }
+
+    for (int i = 1; i <= 2 * N; ++i)
+        if (!checked[i])
+        {
+            permutation[1] = i;
+            break;
+        }
+    
+    for (int i = 1; i <= 2 * N; ++i)
+        cout << permutation[i] << ' ';
+    cout << ENDL;
+}
+
+int main(void)
+{
+    FAST_IO;
+#ifdef SUN_RAT_LOCAL
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+#endif
+
+    int TC;
+    cin >> TC;
+
+    while (TC-- > 0)
+        solve();
+
+    return 0;
+}
 ```
