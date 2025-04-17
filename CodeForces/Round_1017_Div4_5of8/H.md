@@ -37,16 +37,13 @@ $K$ 의 약수이며, 구간 $[l, r]$ 에 속한 $a_i$ 를 `index` 순으로 정
 $[a_{k0}, \dots , a_{kd}]$  
 
 구하고자 하는 $ans$ 는 아래의 결과의 총합과 같다.  
-$$
-\begin{align}
-( \text{index of } a_{k0} - \text{index of } a_{l}) &* (\text{divide K until Kmod}a_{k0} \neq 0 \text{ and return K}) \\
-( \text{index of } a_{k1} - \text{index of } a_{k0}) &* (\text{divide K until Kmod}a_{k1} \neq 0 \text{ and return K}) \\
-( \text{index of } a_{k2} - \text{index of } a_{k1}) &* (\text{divide K until Kmod}a_{k2} \neq 0 \text{ and return K}) \\
-&\vdots \\
-( \text{index of } a_{kd} - \text{index of } a_{kd - 1}) &* (\text{divide K until Kmod}a_{kd} \neq 0 \text{ and return K})\\
-( \text{index of } a_{r} - \text{index of } a_{kd} + 1) &* K \\
-\end{align}
-$$
+
+$( \text{index of } a_{k0} - \text{index of } a_{l}) * (\text{divide K until Kmod}a_{k0} \neq 0 \text{ and return K})$  
+$( \text{index of } a_{k1} - \text{index of } a_{k0}) * (\text{divide K until Kmod}a_{k1} \neq 0 \text{ and return K})$  
+$( \text{index of } a_{k2} - \text{index of } a_{k1}) * (\text{divide K until Kmod}a_{k2} \neq 0 \text{ and return K})$  
+$\vdots$  
+$( \text{index of } a_{kd} - \text{index of } a_{kd - 1}) * (\text{divide K until Kmod}a_{kd} \neq 0 \text{ and return K})$  
+$( \text{index of } a_{r} - \text{index of } a_{kd} + 1) * K$  
 
 $K$ 는 $[1, 10^5]$ 이내의 자연수 이므로, 먼저 해당 범위의 자연수에 대해 모든 약수를 담은 2차원 배열을 전처리 하여, 입력으로 $K$ 가 주어질 때마다, 빠르게 $K$ 의 약수들에 접근 하게한다.  
 

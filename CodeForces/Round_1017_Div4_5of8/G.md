@@ -42,38 +42,29 @@ Note that all operations are persistent . This means that each operation modifie
 ### 1. Perform a cyclic shift on the array. That is, the array $[a_1, a_2, \ldots, a_n]$ becomes $[a_n, a_1, a_2, \ldots, a_{n-1}]$
 
 단순히 마지막 요소를 `cyclic shift` 한다.  
-$$
-\begin{align}
-Rizzi_{before} &= b_1\cdot 1+b_2\cdot 2+b_3\cdot 3+\ldots + b_m\cdot m \\
-Rizzi_{after} &= b_1\cdot 2+b_2\cdot 3+b_3\cdot 4+\ldots + b_m\cdot 1 \\
-Rizzi_{after} - Rizzi_{before} &= -b_m \cdot (m - 1) + \sum\limits_{i = 1}^{i = m - 1}b_i \\
-\therefore Rizzi_{after} &= Rizzi_{before} - b_m \cdot m + \sum\limits_{i = 1}^{i = m}b_i
-\end{align}
-$$
+
+$Rizzi_{before} = b_1\cdot 1+b_2\cdot 2+b_3\cdot 3+\ldots + b_m\cdot m$  
+$Rizzi_{after} = b_1\cdot 2+b_2\cdot 3+b_3\cdot 4+\ldots + b_m\cdot 1$  
+$Rizzi_{after} - Rizzi_{before} = -b_m \cdot (m - 1) + \sum\limits_{i = 1}^{i = m - 1}b_i$  
+$\therefore Rizzi_{after} = Rizzi_{before} - b_m \cdot m + \sum\limits_{i = 1}^{i = m}b_i$
 
 ### 2. Reverse the entire array. That is, the array $[a_1, a_2, \ldots, a_n]$ becomes $[a_n, a_{n-1}, \ldots, a_1]$
 
 모든 요소의 위치를 반전시킨다.
-$$
-\begin{align}
-Rizzi_{before} &= b_1\cdot 1+b_2\cdot 2+b_3\cdot 3+\ldots + b_m\cdot m \\
-Rizzi_{after} &= b_m\cdot 1+b_{m - 1}\cdot 2+b_{m - 2}\cdot 3+\ldots + b_2\cdot (m-1) + b_1\cdot m \\
-Rizzi_{before} + Rizzi_{after} &= b_1\cdot(m+1)+b_2\cdot(m+1)+b_3\cdot(m+1)+\ldots + b_m\cdot(m+1) \\
-Rizzi_{before} + Rizzi_{after} &= (m+1)\cdot \sum\limits_{i = 1}^{i = m}b_i \\
-\therefore Rizzi_{after} &= -Rizzi_{before} + (m+1)\cdot \sum\limits_{i = 1}^{i = m}b_i \\
-\end{align}
-$$
+
+$Rizzi_{before} = b_1\cdot 1+b_2\cdot 2+b_3\cdot 3+\ldots + b_m\cdot m$  
+$Rizzi_{after} = b_m\cdot 1+b_{m - 1}\cdot 2+b_{m - 2}\cdot 3+\ldots + b_2\cdot (m-1) + b_1\cdot m$  
+$Rizzi_{before} + Rizzi_{after} = b_1\cdot(m+1)+b_2\cdot(m+1)+b_3\cdot(m+1)+\ldots + b_m\cdot(m+1)$
+$Rizzi_{before} + Rizzi_{after} = (m+1)\cdot \sum\limits_{i = 1}^{i = m}b_i$  
+$\therefore Rizzi_{after} = -Rizzi_{before} + (m+1)\cdot \sum\limits_{i = 1}^{i = m}b_i$
 
 ### 3. Append an element to the end of the array. The array $[a_1, a_2, \ldots, a_n]$ becomes $[a_1, a_2, \ldots, a_n, k]$ after appending $k$ to the end of the array
 
 가장 마지막 요소 다음으로 $K$ 를 추가한다.
-$$
-\begin{align}
-Rizzi_{before} &= b_1\cdot 1+b_2\cdot 2+b_3\cdot 3+\ldots + b_m\cdot m \\
-Rizzi_{after} &= b_1\cdot 1+b_2\cdot 2+b_3\cdot 3+\ldots + b_m\cdot m + K \cdot (m + 1)\\
-\therefore Rizzi_{after} &= Rizzi_{before} + K \cdot (m + 1)\\
-\end{align}
-$$
+
+$Rizzi_{before} = b_1\cdot 1+b_2\cdot 2+b_3\cdot 3+\ldots + b_m\cdot m$  
+$Rizzi_{after} = b_1\cdot 1+b_2\cdot 2+b_3\cdot 3+\ldots + b_m\cdot m + K \cdot (m + 1)$  
+$\therefore Rizzi_{after} = Rizzi_{before} + K \cdot (m + 1)\\$
 
 위의 3가지 연산에 대해 $Rizzi$ 는 $Sum(B)$ 를 안다면, $O(1)$ 으로 계산할 수 있다.  
 다만, 반전연산으로 인해, 마지막에 추가하는 위치, 첫 번째 요소의 위치를 계속 추적해야 한다.
