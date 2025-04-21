@@ -59,17 +59,17 @@ struct Segment
     int min_data = numeric_limits<int>::max();
     int max_data = numeric_limits<int>::min();
     Segment() = default;
-    void update_segment(const int data)
+    inline void update_segment(const int data)
     {
         this->sum = data;
         this->max_data = data;
         this->min_data = data;
     }
-    void merge(const Segment &L, const Segment &R) const
+    inline void merge(const Segment &L, const Segment &R)
     {
         this->sum = L.sum + B.sum;
-        this->min_data = min(A.min_data, B.min_data);
-        this->max_data = max(A.max_data, B.max_data);
+        this->min_data = min(L.min_data, R.min_data);
+        this->max_data = max(L.max_data, R.max_data);
     }
 };
 ```
@@ -145,8 +145,8 @@ public:
 
 ## Iterative SegmentTree Implementation
 
-구간 $\text{[l, r)}$ 에 대해 접근을 생각해보자.
-재귀 방식에서 구간 $\text{[l, r)}$ 에 포함되는 최대 크기의 `Segment` 들을 선택하여 $O(logN)$ 의 복잡도로 쿼리를 수행했다.
+구간 $\text{[l, r)}$ 에 대해 접근을 생각해보자.  
+재귀 방식에서 구간 $\text{[l, r)}$ 에 포함되는 최대 크기의 `Segment` 들을 선택하여 $O(logN)$ 의 복잡도로 쿼리를 수행했다.  
 반복문 기반에서도 마찬가지로 최대 크기의 `Segment` 선택하되, 재귀에서와 반대로 `leaf` 에서부터 해당 되는 `Segment` 를 찾는다.
 
 - 좀더 쉬운 유도를 위해, $N$ 을 $2^{\lceil\log_2 N\rceil}$ 이고, $H = \lceil\log_2 N\rceil$ 라고 하자.
