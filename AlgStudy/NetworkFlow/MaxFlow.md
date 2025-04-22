@@ -83,7 +83,9 @@ flow \oplus flow^* =
 edge(u, v) \in E \rightarrow flow(u, v) + flow^*(u, v) - flow^(v, u)\\
 \text{Otherwise, } flow(u, v)
 \end{cases} \\
-\text{}\\
+```
+
+```math
 Resi^* = 
 \begin{cases}
 (u, v) \in P, (u, v) \in E \rightarrow Resi(u, v) - \delta , Resi(v, u) + \delta\\
@@ -105,7 +107,7 @@ Resi^* =
 
 위 과정을 반복하여, `Flow` 가 더 이상 늘지 않을 때, 즉 `Augmenting Path` 가 존재하지 않을 때 `Max Flow` 에 도달하게 된다.  
 
-`Augmenting Path` $P$ 의 각 간선 $flow^*(u, v)$ 또는 $flow^*(v, u)$ 는 $\underset{(u,v)\in P}{\operatorname{min}}c_f(u,v)$ 이다.  
+`Augmenting Path` $P$ 의 각 간선 $flow^*(u, v)$ 또는 $flow^*(v, u)$ 는 $\underset{(u,v)\in P}{min}c_f(u,v)$ 이다.  
 따라서, $flow \oplus flow^*$ 일반화를 아래 처럼 표현할 수 있다.
 
 ```math
