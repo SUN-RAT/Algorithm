@@ -34,10 +34,10 @@ Your task is to find the minimum possible cost among all strings obtainable by p
 
 손가락이 놓여진 button 의 글자를 $pointer$ , 현재 작성할려는 문자가 $S[i]$ 라 하자.  
 
-```math
+$$
 \text{if pointer == S[i] } \rightarrow \Delta Cost = 1 \\
 \text{if pointer != S[i] } \rightarrow \Delta Cost = 2 \\
-```
+$$
 
 위의 관계가 있음을 알 수 있다.  
 

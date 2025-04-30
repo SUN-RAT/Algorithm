@@ -28,14 +28,14 @@ Your task is to determine the maximum size of a subsequence-  of array $a$ that 
 
 $A^{sub}$ 가 `beautiful` 하려면,  
 
-```math
+$$
 A[0] * Y[0] = K \\
 A[1] * Y[1] = K \\
 A[2] * Y[2] = K \\
 \vdots \\
 A[M-2] * Y[M-2] = K \\
 A[M-1] * Y[M-1] = K \\
-```
+$$
 
 위 조건을 만족해야 한다.  
 동시에 $A[M]$ 과 $Y[M]$ 의 모든 요소는 각 배열 내에서 `unique` 해야 한다.  

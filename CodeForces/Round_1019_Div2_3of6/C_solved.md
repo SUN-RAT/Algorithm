@@ -44,11 +44,11 @@ $i < j$ 이고, $Prefix[i] <= Prefix[j]$ 일 때,
 $[0, i]$ 에서 $K$ 이하인 요소의 개수를 $low_{i}$ , 초과인 요소의 개수를 $high_{i}$ 라 하고,  
 $[0, j]$ 에서 $K$ 이하인 요소의 개수를 $low_{j}$ , 초과인 요소의 개수를 $high_{j}$ 라 하면, 아래의 관계를 관찰할 수 있다.  
 
-```math
+$$
 i < j \rightarrow low_i + high_i < low_j + high_j \\
 Prefix[i] <= Prefix[j] \rightarrow high_i - low_i <= high_j - low_j \\
 low_j - low_i <= high_j - high_i \\
-```
+$$
 
 따라서, 구간 $[i + 1, j]$ 또한 $median$ 값이 $K$ 이하 이다.  
 
