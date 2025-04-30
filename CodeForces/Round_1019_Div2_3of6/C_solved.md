@@ -5,11 +5,11 @@
 
 ## Problem Statement
 
-The median of an array $b_1, b_2, \ldots b_m$, written as $\operatorname{med}(b_1, b_2, \ldots, b_m)$, is the $\left\lceil \frac{m}{2} \right\rceil$-th-  smallest element of array $b$.
+The median of an array $b_1, b_2, \ldots b_m$, written as $med(b_1, b_2, \ldots, b_m)$, is the $\left\lceil \frac{m}{2} \right\rceil$-th-  smallest element of array $b$.
 
 You are given an array of integers $a_1, a_2, \ldots, a_n$ and an integer $k$. You need to determine whether there exists a pair of indices $1 \le l < r < n$ such that:
 
-$$\operatorname{med}(\operatorname{med}(a_1, a_2, \ldots, a_l), \operatorname{med}(a_{l+1}, a_{l+2}, \ldots, a_r), \operatorname{med}(a_{r+1}, a_{r+2}, \ldots, a_n)) \le k.$$
+$$med(med(a_1, a_2, \ldots, a_l), med(a_{l+1}, a_{l+2}, \ldots, a_r), med(a_{r+1}, a_{r+2}, \ldots, a_n)) \le k.$$
 
 In other words, determine whether it is possible to split the array into three contiguous subarrays-  such that the median of the three subarray medians is less than or equal to $k$.
 
@@ -45,9 +45,11 @@ $[0, i]$ 에서 $K$ 이하인 요소의 개수를 $low_{i}$ , 초과인 요소�
 $[0, j]$ 에서 $K$ 이하인 요소의 개수를 $low_{j}$ , 초과인 요소의 개수를 $high_{j}$ 라 하면, 아래의 관계를 관찰할 수 있다.  
 
 $$
+\begin{aligned}
 i < j \rightarrow low_i + high_i < low_j + high_j \\
 Prefix[i] <= Prefix[j] \rightarrow high_i - low_i <= high_j - low_j \\
 low_j - low_i <= high_j - high_i \\
+\end{aligned}
 $$
 
 따라서, 구간 $[i + 1, j]$ 또한 $median$ 값이 $K$ 이하 이다.  
