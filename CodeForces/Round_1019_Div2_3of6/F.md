@@ -5,9 +5,9 @@
 
 ## Problem Statement
 
-The bitwise nor-  of an array of $k$-bit integers $b_1, b_2, \ldots, b_m$ can be computed by calculating the bitwise nor cumulatively from left to right. More formally, $\operatorname{nor}(b_1, b_2, \ldots, b_m) = \operatorname{nor}(\operatorname{nor}(b_1, b_2, \ldots, b_{m - 1}), b_m)$ for $m\ge 2$, and $\operatorname{nor}(b_1) = b_1$.
+The bitwise NOR-  of an array of $k$-bit integers $b_1, b_2, \ldots, b_m$ can be computed by calculating the bitwise NOR cumulatively from left to right. More formally, $NOR(b_1, b_2, \ldots, b_m) = NOR(NOR(b_1, b_2, \ldots, b_{m - 1}), b_m)$ for $m\ge 2$, and $NOR(b_1) = b_1$.
 
-You are given an array of $k$-bit integers $a_1, a_2, \ldots, a_n$. For each index $i$ ($1\le i\le n$), find the maximum bitwise nor among all subarrays-  of $a$ containing index $i$. In other words, for each index $i$, find the maximum value of $\operatorname{nor}(a_l, a_{l+1}, \ldots, a_r)$ among all $1 \le l \le i \le r \le n$.
+You are given an array of $k$-bit integers $a_1, a_2, \ldots, a_n$. For each index $i$ ($1\le i\le n$), find the maximum bitwise NOR among all subarrays-  of $a$ containing index $i$. In other words, for each index $i$, find the maximum value of $NOR(a_l, a_{l+1}, \ldots, a_r)$ among all $1 \le l \le i \le r \le n$.
 
 ## Input
 
@@ -18,7 +18,7 @@ You are given an array of $k$-bit integers $a_1, a_2, \ldots, a_n$. For each ind
 
 ## Output
 
-- For each test case, output $n$ integers, the $i$-th of which is the maximum bitwise nor among all subarrays of $a$ containing index $i$.
+- For each test case, output $n$ integers, the $i$-th of which is the maximum bitwise NOR among all subarrays of $a$ containing index $i$.
 
 ## Upsolving
 
