@@ -30,7 +30,7 @@ You need to divide the $n$ elements into $2$ sequences $B$ and $C$, satisfying t
 ## Solution
 
 입력으로 주어진 배열을 $A$ 라 하자.  
-$B \cup C = A $ 이고, $B \cap C = \emptyset$ , $B \neq \emptyset$ , $C \neq \emptyset$ 이다.  
+$B \cup C = A$ 이고, $B \cap C = \emptyset$ , $B \neq \emptyset$ , $C \neq \emptyset$ 이다.  
 
 $gcd(B) \neq gcd(C)$ 가 성립하게 할려면, $A$ 의 모든 요소 중, 최대값에 해당 하는 모든 요소를 한쪽에 몰아 넣고, 나머지 요소를 다른 집합에 몰아 넣으면 만족 한다.  
 
