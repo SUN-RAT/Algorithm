@@ -30,5 +30,44 @@ If both players play optimally, predict the winner of the game.
 
 ## Solution
 
+먼저, 임의의 플레이어의 턴에서 반드시 지는 경우를 생각해보자.  
+
+- 어떠한 요소를 선택해도 무조건 $max - min > K$ 가 된다면, 해당 플레이어는 반드시 패배한다.  
+  - 즉, 선택하기 전 $max - min > K + 1$ 이거나, $max - min = K$ 이지만 $max$ 에 해당되는 요소가 2개 이상인 경우 무조건 패배
+- 선택할 요소가 하나도 없는 경우
+
+첫 번째 상황은 항상 첫 번째 턴에서만 발생 한다.  
+두 번째 턴 이후에 발생 한다면, 이전의 턴의 결과가 이미 $max - min > K$ 이므로, 모순이기 때문 이다.  
+
+두 번째 상황은 전체 사과의 개수가 홀수인 경우 Tom 의 승리, 짝수인 경우 Jerry 의 승리 이다.  
+
 ```cpp
+void solve(void)
+{
+    int N, K;
+    cin >> N >> K;
+
+    int mx = 0, mn = 1e9 + 1;
+    int mx_cnt = 0;
+    ll total = 0;
+    for (int a, _ = 0; _ < N; ++_)
+    {
+        cin >> a;
+
+        total += a;
+        mn = min(mn, a);
+        if (mx < a)
+        {
+            mx = a;
+            mx_cnt = 1;
+        }
+        else if (mx == a)
+            ++mx_cnt;
+    }
+
+    if (mx - mn > K + 1 || (mx - mn == K + 1 && mx_cnt > 1))
+        cout << "Jerry" << ENDL;
+    else
+        cout << (total & 1 ? "Tom" : "Jerry") << ENDL;
+}
 ```
